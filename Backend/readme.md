@@ -39,3 +39,13 @@ Agregue esto a un proyecto Maven
 
     </build>
 ```
+
+Liste los programas corriendo sobre un puerto
+```
+lsof -i:8080
+```
+
+Mate el proceso en el puerto elegido
+```
+kill $(lsof -t -i:8080)
+```
