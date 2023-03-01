@@ -69,6 +69,21 @@ public class App extends SpringBootServletInitializer {
 }
 ```
 
+Ya con todas las condiciones iniciales puede agregar un controller
+```
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+    @GetMapping("hello")
+    public String hello() {
+        return "Integrador 1";
+    }
+}
+
+```
+
 
 Liste los programas corriendo sobre un puerto<br><br>
 Unix
