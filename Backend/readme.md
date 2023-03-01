@@ -42,10 +42,16 @@ Agregue esto a un proyecto Maven
 
 Liste los programas corriendo sobre un puerto
 ```
+//Unix
 lsof -i:8080
+//Windows
+netstat -ano | findstr :<PORT>
 ```
 
 Mate el proceso en el puerto elegido
 ```
+//Unix
 kill $(lsof -t -i:8080)
+//Windows
+taskkill /PID <PID> /F
 ```
