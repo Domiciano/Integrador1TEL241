@@ -17,7 +17,7 @@ Esto permite agregar las dependencias sin necesidad de señalar una versión
     </parent>
 ```
 
-
+Estas son las dependencias para poder armar un REST API
 ```
     <dependencies>
         <dependency>
