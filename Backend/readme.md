@@ -1,11 +1,24 @@
-Agregue esto a un proyecto Maven
+### Agregue el padre al proyecto Maven
+
+
+Esto permite hacer que podamos generar un API deployable
+```
+<packaging>war</packaging>
+```
+
+
+Esto permite agregar las dependencias sin necesidad de señalar una versión
 ```
   <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> 
     </parent>
+```
+
+
+```
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
