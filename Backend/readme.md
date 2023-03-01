@@ -40,18 +40,22 @@ Agregue esto a un proyecto Maven
     </build>
 ```
 
-Liste los programas corriendo sobre un puerto
+Liste los programas corriendo sobre un puerto<br><br>
+Unix
 ```
-//Unix
 lsof -i:8080
-//Windows
+```
+Windows
+```
 netstat -ano | findstr :<PORT>
 ```
 
-Mate el proceso en el puerto elegido
+Mate el proceso en el puerto elegido<br><br>
+Unix
 ```
-//Unix
 kill $(lsof -t -i:8080)
-//Windows
+```
+Windows
+```
 taskkill /PID <PID> /F
 ```
