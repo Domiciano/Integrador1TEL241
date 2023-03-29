@@ -34,9 +34,9 @@ Agregue a src/main/resources un archivo llamado application.properties
 
 ```
 spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://200.3.193.22:3306/P09728_1_11
-spring.datasource.username=P09728_1_11
-spring.datasource.password=ZCSaQGZU
+spring.datasource.url=jdbc:mysql://200.3.193.22:3306/DATABASE
+spring.datasource.username=USER
+spring.datasource.password=PASS
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.tomcat.max-active=2
 ```
