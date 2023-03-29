@@ -36,7 +36,7 @@ spring.datasource.url=jdbc:mysql://200.3.193.22:3306/P09728_1_11
 spring.datasource.username=P09728_1_11
 spring.datasource.password=ZCSaQGZU
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.tomcat.max-active=5
+spring.datasource.tomcat.max-active=2
 ```
 
 
