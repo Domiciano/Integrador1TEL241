@@ -122,7 +122,7 @@ public class Cursos {
     @ManyToMany
     Set<Estudiantes> estudiantes;
 
-    //No olvidad los Getters y Setters
+    //No olvidar los Getters y Setters
 }
 ```
 
@@ -141,6 +141,7 @@ public class Profesores {
     @JsonIgnore
     private Set<Cursos> cursos;
     
+    //No olvidar los Getters y Setters   
 }
 
 ```
