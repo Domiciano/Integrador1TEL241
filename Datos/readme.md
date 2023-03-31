@@ -43,3 +43,59 @@ public interface UserRepositories extends CrudRepository<User, Integer> {
 Donde <User, Integer> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
 
 La clase repository es llamada por la clase controller donde se necesite usar.
+
+
+## 3. Entidad
+Finalmente tenemos la entidad. Esta representa una tabla dentro de la base de datos y se creará automáticamente en cuanto almacene documentos mediante save().
+
+Una entidad se ve así
+
+```
+@Entity
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    private String name;
+
+    private String email;
+
+    private String password;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+```
+Donde @GeneratedValue(strategy = GenerationType.AUTO) se usa para indicar que la variable será INT y AUTO_INCREMENT
