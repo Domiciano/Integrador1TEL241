@@ -99,3 +99,48 @@ public class User {
 }
 ```
 Donde @GeneratedValue(strategy = GenerationType.AUTO) se usa para indicar que la variable será INT y AUTO_INCREMENT
+
+## 4. Relaciones de tablas
+Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y muchos a muchos. Supongo que tiene una relación entre las entidades Curso y Profesor. Para configurar la relación usando JPA, las clases se verán así:
+
+```
+@Entity
+@Table(name = "cursos")
+public class Cursos {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+
+    private String name;
+
+    private String program;
+
+    @ManyToOne
+    @JoinColumn(name = "profeID")
+    Profesores profesores;
+
+    @ManyToMany
+    Set<Estudiantes> estudiantes;
+
+    //No olvidad los Getters y Setters
+}
+```
+
+```
+@Entity
+@Table(name = "profesores")
+public class Profesores {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "profesores")
+    @JsonIgnore
+    private Set<Cursos> cursos;
+    
+}
+
+```
