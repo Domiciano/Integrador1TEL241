@@ -145,3 +145,57 @@ public class Profesores {
 }
 
 ```
+
+## 4. Relación Muchos a Muchos
+Suponga que tiene las entidades Estudiantes y Cursos. Para configurar la relación Muchos a Muchos entre estas dos tablas, necesita hacer lo siguiente:
+
+```
+@Entity
+@Table(name = "estudiantes")
+public class Estudiantes {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+    private String name;
+    private String code;
+
+    @ManyToMany
+    @JoinTable(
+            name = "estudiante_curso",
+            joinColumns = @JoinColumn(name = "estudiante_id"),
+            inverseJoinColumns = @JoinColumn(name = "curso_id")
+    )
+    private List<Cursos> cursos;
+
+    //No olvidar Getters y Setters
+    
+}
+```
+
+
+```
+@Entity
+@Table(name = "cursos")
+public class Cursos {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+
+    private String name;
+
+    private String program;
+
+    @ManyToOne
+    @JoinColumn(name = "profeID")
+    Profesores profesores;
+
+    @ManyToMany
+    List<Estudiantes> estudiantes;
+
+    //No olvidar Getters y Setters
+    
+}
+
+```
+
+
