@@ -11,12 +11,12 @@ Tenga en cuenta:<br>
 </ol>
 Un controller se ve así:
 ```
+
 @RestController
 public class EchoController {
 
     @Autowired
     MyRepository myRepository;
-    
     ...
     @GetMapping("echo")
     public String echo(){
@@ -28,6 +28,18 @@ public class EchoController {
         return ResponseEntity.status(200).body("Another");
     }
     ...
+}
+
+```
+
+## 2. Repository
+En un repository, va el CRUD (Create, Read, Update, Delete) de cada una de las entidades. Por ejemplo si tenemos una entidad User, un repository puede verse así
+
+```
+public interface UserRepositories extends CrudRepository<User, Integer> {
 
 }
-```
+``` 
+Donde <User, Integer> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
+
+La clase repository es llamada por la clase controller donde se necesite usar.
