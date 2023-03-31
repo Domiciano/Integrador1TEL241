@@ -9,3 +9,25 @@ Tenga en cuenta:<br>
     <li>PUT. Úselo cuando quiere agregar/reemplazar/modificar un registro en la base de datos</li>
     <li>DELETE. Úselo cuando quiere eliminar información de la base de datos</li>
 </ol>
+Un controller se ve así:
+```
+@RestController
+public class EchoController {
+
+    @Autowired
+    MyRepository myRepository;
+    
+    ...
+    @GetMapping("echo")
+    public String echo(){
+        return "echo";
+    }
+    
+    @PostMapping("another")
+    public ResponseEntity<?> another(){
+        return ResponseEntity.status(200).body("Another");
+    }
+    ...
+
+}
+```
