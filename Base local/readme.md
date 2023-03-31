@@ -24,3 +24,5 @@ Luego, use el comando
 ```
 docker-compose up -d
 ```
+
+Con esto tendrá una base de datos local en 127.0.0.1:3306. Su usuario es user, su password es password y la base de datos se llamará db
