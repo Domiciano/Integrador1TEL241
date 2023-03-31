@@ -11,7 +11,6 @@ Tenga en cuenta:<br>
 </ol>
 Un controller se ve así:
 ```
-
 @RestController
 public class EchoController {
 
@@ -29,7 +28,6 @@ public class EchoController {
     }
     ...
 }
-
 ```
 
 ## 2. Repository
@@ -40,6 +38,7 @@ public interface UserRepositories extends CrudRepository<User, Integer> {
 
 }
 ``` 
+
 Donde <User, Integer> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
 
 La clase repository es llamada por la clase controller donde se necesite usar.
