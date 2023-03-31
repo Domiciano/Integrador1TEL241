@@ -171,7 +171,7 @@ public class Estudiantes {
     
 }
 ```
-
+Note que usted define la tabla pivote a través de @JoinTable
 
 ```
 @Entity
