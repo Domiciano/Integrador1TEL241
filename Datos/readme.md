@@ -100,7 +100,7 @@ public class User {
 ```
 Donde @GeneratedValue(strategy = GenerationType.AUTO) se usa para indicar que la variable será INT y AUTO_INCREMENT
 
-## 4. Relaciones de tablas
+## 4. Relación 1 a Muchos
 Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y muchos a muchos. Supongo que tiene una relación entre las entidades Curso y Profesor. Para configurar la relación usando JPA, las clases se verán así:
 
 ```
