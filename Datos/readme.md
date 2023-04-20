@@ -105,6 +105,26 @@ Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y mucho
 
 ```
 @Entity
+@Table(name = "profesores")
+public class Profesores {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "profesores")
+    @JsonIgnore
+    private Set<Cursos> cursos;
+    
+    //No olvidar los Getters y Setters   
+}
+
+```
+
+```
+@Entity
 @Table(name = "cursos")
 public class Cursos {
     @Id
@@ -126,25 +146,7 @@ public class Cursos {
 }
 ```
 
-```
-@Entity
-@Table(name = "profesores")
-public class Profesores {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
-
-    private String name;
-
-    @OneToMany(mappedBy = "profesores")
-    @JsonIgnore
-    private Set<Cursos> cursos;
-    
-    //No olvidar los Getters y Setters   
-}
-
-```
 
 ## 4. Relación Muchos a Muchos
 Suponga que tiene las entidades Estudiantes y Cursos. Para configurar la relación Muchos a Muchos entre estas dos tablas, necesita hacer lo siguiente:
