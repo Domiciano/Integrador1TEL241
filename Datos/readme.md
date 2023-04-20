@@ -114,7 +114,7 @@ public class Profesores {
 
     private String name;
 
-    @OneToMany(mappedBy = "profesores")
+    @OneToMany(mappedBy = "profesores") //Nombre de la propiedad en la otra clase
     @JsonIgnore
     private Set<Cursos> cursos;
     
