@@ -114,7 +114,7 @@ public class Profesores {
 
     private String name;
 
-    @OneToMany(mappedBy = "profesores") //Nombre de la propiedad en la otra clase
+    @OneToMany(mappedBy = "profesor") //Nombre de la propiedad en la otra clase
     @JsonIgnore
     private Set<Cursos> cursos;
     
@@ -137,7 +137,7 @@ public class Cursos {
 
     @ManyToOne
     @JoinColumn(name = "profeID")
-    Profesores profesores;
+    Profesores profesor;
 
     @ManyToMany
     Set<Estudiantes> estudiantes;
