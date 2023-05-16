@@ -36,3 +36,37 @@ docker tag back:0.0.1 domi0620/back:0.0.1
 ```
 docker push domi0620/back:0.0.1 
 ```
+
+```
+services:
+  db:
+    platform: linux/x86_64
+    command: ["--max_connections=1000"]
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+
+  backend:
+    depends_on:
+      - db
+    image: domi0620/back:0.0.2  # Nombre y etiqueta de tu imagen del backend
+    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+
+volumes:
+  my-db:
+
+```
