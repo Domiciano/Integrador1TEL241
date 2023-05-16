@@ -70,3 +70,25 @@ volumes:
   my-db:
 
 ```
+# Frontend
+```
+# Utiliza una imagen base con Nginx instalado
+FROM nginx:latest
+# Copia el contenido de tu proyecto web al directorio predeterminado de Nginx
+COPY . /usr/share/nginx/html
+# Exponer el puerto 80 para permitir el acceso a través de HTTP
+EXPOSE 80
+```
+
+```
+docker build -t front:0.0.1 .
+```
+
+```
+docker tag front:0.0.1 domi0620/front:0.0.1
+```
+
+```
+docker push domi0620/front:0.0.1          
+```
+
