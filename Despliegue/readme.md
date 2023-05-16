@@ -29,3 +29,6 @@ Puede ejecutar la aplicación usando
 ```
 docker run -p 8080:8080 back:0.0.1
 ```
+```
+docker tag back:0.0.1 domi0620/back:0.0.1
+```
