@@ -70,6 +70,13 @@ volumes:
   my-db:
 
 ```
+
+
+```
+spring.datasource.url=jdbc:mysql://db:3306/db
+server.servlet.context-path=/banner/api
+```
+
 # Frontend
 ```
 # Utiliza una imagen base con Nginx instalado
