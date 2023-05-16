@@ -54,20 +54,30 @@ services:
     expose:
       - '3306'
     volumes:
-      - my-db:/var/lib/mysql
+      - dbstorage:/var/lib/mysql
 
   backend:
     depends_on:
       - db
-    image: domi0620/back:0.0.2  # Nombre y etiqueta de tu imagen del backend
+    image: domi0620/back:0.0.4  # Nombre y etiqueta de tu imagen del backend
     restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
     ports:
       - '8080:8080'
     expose:
       - '8080'
 
+  frontend:
+    depends_on:
+      - backend
+    image: domi0620/front:0.0.6  # Nombre y etiqueta de tu imagen del backend
+    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
+    ports:
+      - '80:80'
+    expose:
+      - '80'
+
 volumes:
-  my-db:
+  dbstorage:
 
 ```
 
@@ -97,5 +107,10 @@ docker tag front:0.0.1 domi0620/front:0.0.1
 
 ```
 docker push domi0620/front:0.0.1          
+```
+
+Todas las rutas deben quedar con el path dentro del stack
+```
+http://backend:8080/banner/api/courses/all
 ```
 
