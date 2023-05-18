@@ -88,11 +88,24 @@ server.servlet.context-path=/banner/api
 ```
 
 # Frontend
+
+Configuración del servidor nginx. Corresponde al archivo nginx.conf
+```
+server {
+    listen 80;
+    location /banner {
+        alias /usr/share/nginx/html;
+        index index.html;
+        try_files $uri $uri/ /banner/index.html;
+    }
+}
+```
+
 ```
 # Utiliza una imagen base con Nginx instalado
-FROM nginx:latest
-# Copia el contenido de tu proyecto web al directorio predeterminado de Nginx
-COPY . /usr/share/nginx/html
+FROM --platform=linux/amd64 nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY . /usr/share/nginx/html/
 # Exponer el puerto 80 para permitir el acceso a través de HTTP
 EXPOSE 80
 ```
@@ -113,4 +126,11 @@ Todas las rutas deben quedar con el path dentro del stack
 ```
 http://backend:8080/banner/api/courses/all
 ```
+
+Se puede correr un contenedor de forma individual
+```
+docker run -p 80:80 front:0.0.1
+```
+
+
 
