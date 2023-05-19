@@ -1,10 +1,15 @@
 # Creación del contenedor de backend
+
+## 1. Preparación
 Maven goal
 ```
 mvn clean package
 ``` 
 Se genera el .jar, luego se debe hacer el dockerfile
 ```
+
+## 2. Generación de imagen
+
 # Utiliza una imagen base de Java
 FROM openjdk:11-jdk
 
@@ -25,17 +30,78 @@ Luego se hace el build de la imagen de docker
 ```
 docker build -t back:0.0.1 .
 ```
-Puede ejecutar la aplicación usando
+Todas las versiones vienen con un nombre de imagen y un número de versión. Se puede usar un formato de tres puntos de versión.</br></br>
+
+## 3. Ejecutar imagen
+Para ejecutar la imagen en un contenedor use
 ```
 docker run -p 8080:8080 back:0.0.1
 ```
+Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.</br></br>
+
+## 4. Publicación
+Querrá usar su imagen de docker, para hacerlo debe subir su imagen a DockerHUB. Para iniciar el proceso use un tag
 ```
 docker tag back:0.0.1 domi0620/back:0.0.1
 ```
-
+En el tag especifique el nombre de su imagen local y luego un nombre cuyo prefijo sea su nombre de usuario en dockerhub.</br></br>
+Ahora puede hacer push del stack para tener un backup online de su imagen. Esto le permitirá usar las imágenes y construir un stack de servicios
 ```
 docker push domi0620/back:0.0.1 
 ```
+
+# Frontend
+
+## 1. Preparación
+Configuración del servidor nginx. Corresponde al archivo nginx.conf
+```
+server {
+    listen 80;
+    location /banner {
+        alias /usr/share/nginx/html;
+        index index.html;
+        try_files $uri $uri/ /banner/index.html;
+    }
+}
+```
+
+## 2. Generación de imagen
+
+```
+# Utiliza una imagen base con Nginx instalado
+FROM --platform=linux/amd64 nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY . /usr/share/nginx/html/
+# Exponer el puerto 80 para permitir el acceso a través de HTTP
+EXPOSE 80
+```
+
+```
+docker build -t front:0.0.1 .
+```
+
+## 3. Ejecutar imagen
+Para ejecutar la imagen en un contenedor use
+```
+docker run -p 80:80 front:0.0.1
+```
+Esto generará un contenedor con nombre aleatorio que se ejecutará en el puerto 8080 y que está mapeado al puerto 8080 del contenedor.</br></br>
+
+## 4. Publicación
+Querrá usar su imagen de docker, para hacerlo debe subir su imagen a DockerHUB. Para iniciar el proceso use un tag
+```
+docker tag front:0.0.1 domi0620/front:0.0.1
+```
+En el tag especifique el nombre de su imagen local y luego un nombre cuyo prefijo sea su nombre de usuario en dockerhub.</br></br>
+
+Ahora puede hacer push del stack para tener un backup online de su imagen. Esto le permitirá usar las imágenes y construir un stack de servicios
+```
+docker push domi0620/front:0.0.1          
+```
+
+
+
+## Próximamente
 
 ```
 services:
@@ -85,51 +151,6 @@ volumes:
 ```
 spring.datasource.url=jdbc:mysql://db:3306/db
 server.servlet.context-path=/banner/api
-```
-
-# Frontend
-
-Configuración del servidor nginx. Corresponde al archivo nginx.conf
-```
-server {
-    listen 80;
-    location /banner {
-        alias /usr/share/nginx/html;
-        index index.html;
-        try_files $uri $uri/ /banner/index.html;
-    }
-}
-```
-
-```
-# Utiliza una imagen base con Nginx instalado
-FROM --platform=linux/amd64 nginx:latest
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY . /usr/share/nginx/html/
-# Exponer el puerto 80 para permitir el acceso a través de HTTP
-EXPOSE 80
-```
-
-```
-docker build -t front:0.0.1 .
-```
-
-```
-docker tag front:0.0.1 domi0620/front:0.0.1
-```
-
-```
-docker push domi0620/front:0.0.1          
-```
-
-Todas las rutas deben quedar con el path dentro del stack
-```
-http://backend:8080/banner/api/courses/all
-```
-
-Se puede correr un contenedor de forma individual
-```
-docker run -p 80:80 front:0.0.1
 ```
 
 
