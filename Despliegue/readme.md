@@ -1,7 +1,7 @@
 # Creación del contenedor de backend
 
 ## 1. Preparación
-Maven goal
+Este comando le permitirá generar el JAR para ejecutar la aplicación
 ```
 mvn clean package
 ``` 
