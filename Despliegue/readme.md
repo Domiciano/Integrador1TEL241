@@ -6,10 +6,11 @@ Este comando le permitirá generar el JAR para ejecutar la aplicación
 mvn clean package
 ``` 
 Se genera el .jar, luego se debe hacer el dockerfile
-```
+
 
 ## 2. Generación de imagen
 
+```
 # Utiliza una imagen base de Java
 FROM openjdk:11-jdk
 
