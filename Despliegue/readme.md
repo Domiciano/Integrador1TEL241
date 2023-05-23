@@ -152,7 +152,7 @@ Docker compose para portainer
 ```
 version: "3.7"
 services:
-  db:
+  bannerdb:
     command: ["--max_connections=1000"]
     image: mysql:5.7
     restart: always
@@ -161,33 +161,31 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
     volumes:
-      - dbbanner:/var/lib/mysql
+      - my-db:/var/lib/mysql
     networks:
-      - proxy
+      - mired
 
-  backend:
+  bannerbackend:
     depends_on:
-      - db
-    image: domi0620/back:0.0.8  # Nombre y etiqueta de tu imagen del backend
+      - bannerdb
+    image: domi0620/back:0.0.12  # Nombre y etiqueta de tu imagen del backend
     restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
     ports:
       - '8080:8080'
     expose:
       - '8080'
+    environment:
+      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
+      - APP_PATH=/bannerapi
     networks:
-      - proxy
+      - mired
 
 volumes:
-  dbbanner:
+  my-db:
 
 networks:
-  proxy:
-    external: true
+  mired:
 ```
 
 
