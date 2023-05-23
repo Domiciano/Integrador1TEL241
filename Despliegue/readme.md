@@ -148,6 +148,48 @@ volumes:
 
 ```
 
+Docker compose para portainer
+```
+version: "3.7"
+services:
+  db:
+    command: ["--max_connections=1000"]
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - dbbanner:/var/lib/mysql
+    networks:
+      - proxy
+
+  backend:
+    depends_on:
+      - db
+    image: domi0620/back:0.0.8  # Nombre y etiqueta de tu imagen del backend
+    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
+    networks:
+      - proxy
+
+volumes:
+  dbbanner:
+
+networks:
+  proxy:
+    external: true
+```
+
 
 ```
 spring.datasource.url=jdbc:mysql://db:3306/db
