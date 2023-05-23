@@ -200,8 +200,16 @@ server.servlet.context-path=/bannerapi
 
 ```
 https://i2thub.icesi.edu.co:5443/bannerapi/echo
+```
 
-
+```
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.username=user
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.tomcat.max-active=2
+spring.datasource.url=${DATA_SOURCE_URL}
+server.servlet.context-path=${APP_PATH}
 ```
 
 
