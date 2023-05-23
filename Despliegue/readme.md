@@ -200,8 +200,11 @@ networks:
 
 ```
 spring.datasource.url=jdbc:mysql://db:3306/db
-server.servlet.context-path=/banner/api
+server.servlet.context-path=/bannerapi
 ```
 
+```
+https://i2thub.icesi.edu.co:5443/bannerapi/echo
+```
 
 
