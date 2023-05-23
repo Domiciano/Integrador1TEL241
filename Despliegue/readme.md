@@ -162,30 +162,39 @@ services:
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
     volumes:
-      - my-db:/var/lib/mysql
+      - bannerdata:/var/lib/mysql
     networks:
-      - mired
+      - proxy
 
   bannerbackend:
     depends_on:
       - bannerdb
-    image: domi0620/back:0.0.12  # Nombre y etiqueta de tu imagen del backend
-    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
+    image: domi0620/back:0.0.12
+    restart: always
     ports:
-      - '8080:8080'
+      - '8081:8080'
     expose:
-      - '8080'
+      - '8081'
     environment:
       - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
       - APP_PATH=/bannerapi
     networks:
-      - mired
+      - proxy
+    deploy:
+        replicas: 1
+        labels: 
+          com.df.distribute: "false"
+          com.df.notify: "true"
+          com.df.port: 8081
+          com.df.servicePath: "/bannerapi"
 
 volumes:
-  my-db:
+  bannerdata:
+    external: true
 
 networks:
-  mired:
+  proxy:
+    external: true
 ```
 
 
