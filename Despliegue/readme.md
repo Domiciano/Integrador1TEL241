@@ -105,9 +105,9 @@ docker push domi0620/front:0.0.1
 ## Próximamente
 
 ```
+version: "3.7"
 services:
-  db:
-    platform: linux/x86_64
+  bannerdb:
     command: ["--max_connections=1000"]
     image: mysql:5.7
     restart: always
@@ -116,36 +116,31 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
     volumes:
-      - dbstorage:/var/lib/mysql
+      - bannerdata:/var/lib/mysql
+    networks:
+      - mired
 
-  backend:
+  bannerbackend:
     depends_on:
-      - db
-    image: domi0620/back:0.0.4  # Nombre y etiqueta de tu imagen del backend
-    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
+      - bannerdb
+    image: domi0620/back:0.0.12
+    restart: always
     ports:
-      - '8080:8080'
+      - '8081:8080'
     expose:
-      - '8080'
-
-  frontend:
-    depends_on:
-      - backend
-    image: domi0620/front:0.0.6  # Nombre y etiqueta de tu imagen del backend
-    restart: always  # Opcional: reiniciar el contenedor siempre que se detenga
-    ports:
-      - '80:80'
-    expose:
-      - '80'
+      - '8081'
+    environment:
+      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
+      - APP_PATH=/bannerapi
+    networks:
+      - mired
 
 volumes:
-  dbstorage:
-
+  bannerdata:
+  
+networks:
+  mired:
 ```
 
 Docker compose para portainer
@@ -185,7 +180,7 @@ services:
         labels: 
           com.df.distribute: "false"
           com.df.notify: "true"
-          com.df.port: 8081
+          com.df.port: 8080
           com.df.servicePath: "/bannerapi"
 
 volumes:
@@ -205,6 +200,8 @@ server.servlet.context-path=/bannerapi
 
 ```
 https://i2thub.icesi.edu.co:5443/bannerapi/echo
+
+
 ```
 
 
