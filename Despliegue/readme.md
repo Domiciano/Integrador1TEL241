@@ -109,6 +109,15 @@ volumes:
 networks:
   mired:
 ```
+Para inciar la ejecución use
+```
+docker-compose up -d
+```
+
+Para detener su stack
+```
+docker-compose down
+```
 
 ## 7. Desplegar a producción
 Para subir en un orquestador de contenedores como portainer se debe usar la configuración establecida por el administrador para poder hacer la publicación.
