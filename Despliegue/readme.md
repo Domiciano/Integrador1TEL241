@@ -51,6 +51,105 @@ Ahora puede hacer push del stack para tener un backup online de su imagen. Esto 
 docker push domi0620/back:0.0.1 
 ```
 
+## 5. Primer Docker Compose
+En este docker compose sólo se va a hacer el montaje de la base de datos y del Rest API
+
+```
+version: "3.7"
+services:
+  bannerdb:
+    command: ["--max_connections=1000"]
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - bannerdata:/var/lib/mysql
+    networks:
+      - mired
+
+  bannerbackend:
+    depends_on:
+      - bannerdb
+    image: domi0620/back:0.0.12
+    restart: always
+    ports:
+      - '8081:8080'
+    expose:
+      - '8081'
+    environment:
+      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
+      - APP_PATH=/bannerapi
+    networks:
+      - mired
+
+volumes:
+  bannerdata:
+  
+networks:
+  mired:
+```
+
+## 6. Desplegar a producción
+Para subir en un orquestador de contenedores como portainer se debe usar la configuración establecida por el administrador para poder hacer la publicación.
+
+```
+version: "3.7"
+services:
+  bannerdb:
+    command: ["--max_connections=1000"]
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - bannerdata:/var/lib/mysql
+    networks: # Se usa una red llamada proxy configurado en el portainer para que tenga salida a internet
+      - proxy
+
+  bannerbackend:
+    depends_on:
+      - bannerdb
+    image: domi0620/back:0.0.12
+    restart: always
+    ports:
+      - '8081:8080'
+    expose:
+      - '8081'
+    environment:
+      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
+      - APP_PATH=/bannerapi
+    networks: # Se usa una red llamada proxy configurado en el portainer para que tenga salida a internet
+      - proxy
+    deploy: # Se la propiedad deploy para establecer el número de réplicas de la imagen y se configura el path
+        replicas: 1
+        labels: 
+          com.df.distribute: "false"
+          com.df.notify: "true"
+          com.df.port: 8080
+          com.df.servicePath: "/bannerapi"
+
+volumes:
+  bannerdata:
+    external: true # Se configura el volumen como externa
+
+networks:
+  proxy:
+    external: true # Se configura la red como externa
+```
+
+
+
+
+
+
+
 # Frontend
 
 ## 1. Preparación
@@ -104,93 +203,6 @@ docker push domi0620/front:0.0.1
 
 ## Próximamente
 
-```
-version: "3.7"
-services:
-  bannerdb:
-    command: ["--max_connections=1000"]
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-    volumes:
-      - bannerdata:/var/lib/mysql
-    networks:
-      - mired
-
-  bannerbackend:
-    depends_on:
-      - bannerdb
-    image: domi0620/back:0.0.12
-    restart: always
-    ports:
-      - '8081:8080'
-    expose:
-      - '8081'
-    environment:
-      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
-      - APP_PATH=/bannerapi
-    networks:
-      - mired
-
-volumes:
-  bannerdata:
-  
-networks:
-  mired:
-```
-
-Docker compose para portainer
-```
-version: "3.7"
-services:
-  bannerdb:
-    command: ["--max_connections=1000"]
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
-    volumes:
-      - bannerdata:/var/lib/mysql
-    networks:
-      - proxy
-
-  bannerbackend:
-    depends_on:
-      - bannerdb
-    image: domi0620/back:0.0.12
-    restart: always
-    ports:
-      - '8081:8080'
-    expose:
-      - '8081'
-    environment:
-      - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
-      - APP_PATH=/bannerapi
-    networks:
-      - proxy
-    deploy:
-        replicas: 1
-        labels: 
-          com.df.distribute: "false"
-          com.df.notify: "true"
-          com.df.port: 8080
-          com.df.servicePath: "/bannerapi"
-
-volumes:
-  bannerdata:
-    external: true
-
-networks:
-  proxy:
-    external: true
-```
 
 
 ```
