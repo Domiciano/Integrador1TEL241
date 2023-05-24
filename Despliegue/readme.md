@@ -51,7 +51,22 @@ Ahora puede hacer push del stack para tener un backup online de su imagen. Esto 
 docker push domi0620/back:0.0.1 
 ```
 
-## 5. Primer Docker Compose
+## 5. Usar variables de entorno
+Puede ser conveniente usar variables de entorno en los proyecto para evitar que se realicen builds consecutivos.
+Por ejemplo, en el application.properties del backend puede usar variables de entorno
+```
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.username=user
+spring.datasource.password=password
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.tomcat.max-active=2
+spring.datasource.url=${DATA_SOURCE_URL}
+server.servlet.context-path=${APP_PATH}
+```
+
+El llamado ${MI_VARIABLE} lo hace directamente el runtime y permite parametrizar configuraciones o constantes en los programas
+
+## 6. Primer Docker Compose
 En este docker compose sólo se va a hacer el montaje de la base de datos y del Rest API
 
 ```
@@ -93,7 +108,7 @@ networks:
   mired:
 ```
 
-## 6. Desplegar a producción
+## 7. Desplegar a producción
 Para subir en un orquestador de contenedores como portainer se debe usar la configuración establecida por el administrador para poder hacer la publicación.
 
 ```
