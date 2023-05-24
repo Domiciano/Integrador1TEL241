@@ -83,6 +83,8 @@ services:
       MYSQL_ROOT_PASSWORD: 'password'
     volumes:
       - bannerdata:/var/lib/mysql
+    ports:
+      - '3306:3306'
     networks:
       - mired
 
@@ -92,9 +94,9 @@ services:
     image: domi0620/back:0.0.12
     restart: always
     ports:
-      - '8081:8080'
+      - '8080:8080'
     expose:
-      - '8081'
+      - '8080'
     environment:
       - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
       - APP_PATH=/bannerapi
