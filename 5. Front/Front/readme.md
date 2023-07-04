@@ -18,3 +18,6 @@ La forma más simple es cuando hacemos un GET
 const response = await fetch(url);
 const json = await response.json();
 ```
+
+
+https://medium.com/@ilyailin7777/how-to-deploy-javascript-app-to-github-pages-4b37b315556f

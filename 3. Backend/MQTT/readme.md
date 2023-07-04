@@ -39,7 +39,24 @@ listener 1883 0.0.0.0
 
 Lo que está haciendo es construyendo su propia imagen del MQTT server con su propio archivo de configuración
 
+## Creación de la imagen
+Para crear la imagen debe estar ubicado en la carpeta que contiene el archivo Dockerfile. Luego use
 
+```
+docker build -t mqttserver:0.0.1 .
+```
+Si desea correr la imagen de docker por fuera del docker-compose use
+```                           
+docker run -p 1883:1883 -p 8883:8883 -p 9001 mqttserver:0.0.1
+```
+Para subir la imagen a su DockerHub taggee primero su imagen usando como prefijo su nombre de usuario
+```
+docker tag mqttserver:0.0.1 domi0620/mqttserver:0.0.1
+```
+Finalmente suba la imagen a DockerHub con el comando push
+```  
+docker push domi0620/mqttserver:0.0.1 
+```
 ## Despliegue local
 
 
@@ -76,4 +93,6 @@ Puede usar cualquier cliente de su elección. MQTTX es adecuado para testear los
 ```
 https://mqttx.app/
 ```
+
+https://www.eclipse.org/paho/index.php?page=clients/js/index.php
 
