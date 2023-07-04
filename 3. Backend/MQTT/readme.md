@@ -34,7 +34,12 @@ EXPOSE 1883 8883 9001
 Y en el archivo mosquitto.conf escriba lo siguiente
 ```
 allow_anonymous true
-listener 1883 0.0.0.0
+
+listener 1883
+protocol mqtt
+
+listener 9001
+protocol websockets
 ```
 
 Lo que está haciendo es construyendo su propia imagen del MQTT server con su propio archivo de configuración
