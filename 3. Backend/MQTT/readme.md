@@ -1,25 +1,63 @@
 <img width="256" src="https://www.icesi.edu.co/launiversidad/images/La_universidad/logo_icesi.png">
 
 # Protocolo MQTT
-Para crear un servidor MQTT simple cree un proyecto con la siguiente estructura
+Para crear un servidor MQTT simple cree una imagen de docker usando la siguiente estructura de carpetas:
+
 
 ```
-* Mosquitto
-   * config
+* images
+   * mosquitto
       - mosquitto.conf
-   - docker-compose.yml
+      - Dockerfile  
+* composes
+   * mosquitto
+      - docker-compose.yml
+```
+Convención
+```
+* Carpeta
+- Archivo
 ```
 
-Descripción: Crear una carpeta Mosquitto con una carpeta config y un archivo docker-compose.yml. Dentro de la carpeta config, un archivo mosquitto.conf
+En el archivo Dockerfile use esta plantilla
 
-En el archivo mosquitto.conf escriba la configuración mínima necesaria
+```
+FROM eclipse-mosquitto:2
+
+# Copiar el archivo de configuración personalizado
+COPY mosquitto.conf ./mosquitto/config/mosquitto.conf
+
+# Exponer los puertos
+EXPOSE 1883 8883 9001
+```
+
+Y en el archivo mosquitto.conf escriba lo siguiente
 ```
 allow_anonymous true
 listener 1883 0.0.0.0
 ```
 
-Luego use el comando
+Lo que está haciendo es construyendo su propia imagen del MQTT server con su propio archivo de configuración
 
+
+## Despliegue local
+
+
+Una vez haya creado su imagen y la haya subido a dockerhub, usted podrá usar el servicio en su docker compose:
+
+```
+version: '3.8'
+services:
+    mosquitto:
+        image: domi0620/mqttserver:0.0.1
+        ports:
+            - 1883:1883
+            - 8883:8883
+            - 9001:9001
+```
+
+
+Luego use
 ```
 docker-compose up
 ```
