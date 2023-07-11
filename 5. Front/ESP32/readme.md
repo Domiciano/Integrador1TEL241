@@ -189,7 +189,108 @@ void loop() {
 }
 ```
 
+## GET Request
+```
+#include <WiFi.h>
+#include <HTTPClient.h>
 
 
+const char* ssid = "PUBLICA";
+const char* password = "";
 
 
+String url = "https://pokeapi.co/api/v2/pokemon/ditto";
+
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.mode(WIFI_STA);
+  initWiFi();
+  HTTPClient http;
+  http.begin(url.c_str());
+  int httpResponseCode = http.GET();
+
+  if (httpResponseCode > 0) {
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    String payload = http.getString();
+    Serial.println(payload);
+  } else {
+    Serial.print("Error code: ");
+    Serial.println(httpResponseCode);
+  }
+  http.end();
+}
+
+void loop() {
+  
+}
+
+void initWiFi() {
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println("Connected!!");
+  Serial.println(WiFi.localIP());
+  
+}
+```
+
+## POST Request
+
+```
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+
+const char* ssid = "PUBLICA";
+const char* password = "";
+
+
+String url = "https://facelogprueba.firebaseio.com/pokemons.json";
+
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.mode(WIFI_STA);
+  initWiFi();
+  HTTPClient http;
+  http.begin(url.c_str());
+  http.addHeader("Content-Type", "application/json");
+  //ENVIO DE DATOS
+  int httpResponseCode = http.POST("{\"api_key\":\"tPmAT5Ab3j7F9\",\"sensor\":\"BME280\",\"value1\":\"24.25\",\"value2\":\"49.54\",\"value3\":\"1005.14\"}");
+
+
+  //RECEPCIÓN
+  if (httpResponseCode > 0) {
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+    String payload = http.getString();
+    Serial.println(payload);
+  } else {
+    Serial.print("Error code: ");
+    Serial.println(httpResponseCode);
+  }
+
+  http.end();
+}
+
+void loop() {
+  
+}
+
+void initWiFi() {
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println("Connected!!");
+  Serial.println(WiFi.localIP());
+  
+}
+```
