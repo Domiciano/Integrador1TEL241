@@ -364,3 +364,7 @@ void initWiFi() {
   
 }
 ```
+
+## Codificando en JSON
+
+https://microdigisoft.com/esp32-with-arduino-json-using-arduino-ide/
