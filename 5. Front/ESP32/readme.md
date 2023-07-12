@@ -438,5 +438,62 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 ```
 
+## Conexión a WebSockets (MQTT over Websocket)
+```
+#include <WiFi.h>
+#include <ArduinoWebsockets.h>
+using namespace websockets;
+
+WebsocketsClient client;
+WiFiClient espClient;
+
+const char* ssid = "i2t_research";
+const char* password = "marcopolo";
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println("Hello, ESP32!");
+
+
+  // We start by connecting to a WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  bool connected = client.connect("ws://192.168.1.12:9001/mqtt");
+
+  if (connected) {
+    Serial.println("Connected");
+  } else {
+    Serial.println("Connection failed.");
+  }
+
+  client.onMessage([&](WebsocketsMessage message) {
+    Serial.print("Got Message: ");
+    Serial.println(message.data());
+  });
+}
+
+void loop() {
+  client.poll();
+}
+
+```
+
 
 
