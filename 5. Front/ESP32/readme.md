@@ -368,3 +368,75 @@ void initWiFi() {
 ## Codificando en JSON
 
 https://microdigisoft.com/esp32-with-arduino-json-using-arduino-ide/
+
+
+## Conexión a MQTT Server
+wss://i2thub.icesi.edu.co:5443/giscel/ws
+https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
+
+
+
+PubSubClient by Nick O'Leary
+https://github.com/knolleary/pubsubclient
+
+```
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+// Datos de la red WiFi
+const char* ssid = "i2t_research";
+const char* password = "marcopolo";
+
+// Datos del servidor MQTT
+const char* mqtt_server = "192.168.1.8";
+const int mqtt_port = 1883;
+const char* mqtt_topic = "alfa";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Conectando a la red WiFi...");
+  }
+
+  Serial.println("Conectado a la red WiFi");
+  Serial.println("Conectando al servidor MQTT...");
+
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+
+  while (!client.connected()) {
+    if (client.connect("ESP32Client")) {
+      Serial.println("Conectado al servidor MQTT");
+      client.subscribe(mqtt_topic);
+    } else {
+      Serial.print("Error al conectar al servidor MQTT. Código de error: ");
+      Serial.println(client.state());
+      delay(2000);
+    }
+  }
+}
+
+void loop() {
+  client.loop();
+}
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensaje recibido en el tópico: ");
+  Serial.println(topic);
+
+  Serial.print("Contenido: ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+}
+```
+
+
+
