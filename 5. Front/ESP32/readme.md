@@ -370,7 +370,7 @@ void initWiFi() {
 https://microdigisoft.com/esp32-with-arduino-json-using-arduino-ide/
 
 
-## Conexión a MQTT Server
+## Conexión a MQTT Server SIN SSL
 wss://i2thub.icesi.edu.co:5443/giscel/ws
 https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
 
