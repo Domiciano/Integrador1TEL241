@@ -1,34 +1,30 @@
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Server {
+public class Client {
 
     public static void main(String[] args) throws IOException {
-        //1. Hago que el server esté atento a conexiones
-        ServerSocket server = new ServerSocket(5001);
-        System.out.println("Esperando conexión");
-        //3. Conexión aceptada
-        Socket socket = server.accept();
-
-        System.out.println("Conexión aceptada: "+socket.getPort());
+        //2. Solicitud de conexión
+        Socket socket = new Socket("127.0.0.1", 6000);
+        System.out.println(socket.getPort());
         System.out.println("Conexión aceptada: "+socket.getInetAddress().getHostName());
+        //Dirección de loopback -> 127.0.0.1
+        //localhost
+        //192.168.130.37
 
-        //5. Server recibe mensaje
-        byte[] buffer = new byte[300];
-        socket.getInputStream().read(buffer);
-        String received = new String(buffer, "UTF-8");
-        System.out.println(received.trim());
-
-        //6. Server envía
-        String mensaje = "Hola desde el server";
+        /*
+        //4. Cliente envia mensaje
+        String mensaje = "Universidad Icesi";
         socket.getOutputStream().write(mensaje.getBytes("UTF-8"));
 
+        //7. Cliente recibe
+        byte[] buffer = new byte[300];
+        socket.getInputStream().read(buffer);
+        String received = new String(buffer);
+        System.out.println(received);
+        */
 
-        //new Thread(()->{
-        // ... Codigo en segundo plano
-        // }).start();
         new Thread(()->{
             while(true){
                 try {
@@ -40,15 +36,11 @@ public class Server {
             }
         }).start();
 
-        //192.168.130.37
         Scanner scanner = new Scanner(System.in);
         while (true){
             String msg = scanner.nextLine();
             socket.getOutputStream().write(msg.getBytes("UTF-8"));
         }
 
-
     }
-
-
 }
