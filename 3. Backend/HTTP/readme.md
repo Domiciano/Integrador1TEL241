@@ -3,7 +3,7 @@
 
 Esto permite hacer que podamos generar un API deployable
 ```
-<packaging>war</packaging>
+<packaging>jar</packaging>
 ```
 
 
