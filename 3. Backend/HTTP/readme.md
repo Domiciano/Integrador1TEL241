@@ -8,23 +8,9 @@
 ### Agregue el padre al proyecto Maven
 
 
-Esto permite hacer que podamos generar un API deployable
-```
-<packaging>jar</packaging>
-```
+Use el Springboot Initializer para crear un nuevo proyecto desde IntellJ Ultimate </br></br>
 
-
-Esto permite agregar las dependencias sin necesidad de señalar una versión
-```
-  <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.3</version>
-        <relativePath/> 
-    </parent>
-```
-
-Estas son las dependencias para poder armar un REST API
+A la lista de dependencias, agregue
 ```
     <dependencies>
         <dependency>
@@ -36,7 +22,9 @@ Estas son las dependencias para poder armar un REST API
     </dependencies>
 
 ```
+De esta forma nuestro repositorio tendrá lo necesario para comenzar un RestAPI HTTP
 
+### Punto de inicio
 Método main de nuestro repo
 ```
 import org.springframework.boot.SpringApplication;
@@ -68,7 +56,7 @@ public class HelloController {
 
 ```
 
-
+### Comando útiles
 Liste los programas corriendo sobre un puerto<br><br>
 Unix
 ```
