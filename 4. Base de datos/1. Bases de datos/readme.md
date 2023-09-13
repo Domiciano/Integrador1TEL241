@@ -45,15 +45,19 @@ spring.datasource.tomcat.max-active=2
 ## Problemas de modelamiento
 
 ```
+Sistema de calificación en cursos de Banner
+```
+
+```
+Sistema de biblioteca ICESI
+```
+
+```
 Sistema de ventas de una tienda de juguetes
 ```
 
 ```
 Sistema de reservas de una aerolínea
-```
-
-```
-Sistema de biblioteca ICESI
 ```
 
 ```
