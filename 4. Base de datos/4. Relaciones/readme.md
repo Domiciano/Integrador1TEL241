@@ -2,6 +2,8 @@
 
 
 ```
+import jakarta.persistence.*;
+
 @Entity
 public class User {
 
@@ -25,6 +27,8 @@ Donde @GeneratedValue(strategy = GenerationType.AUTO) se usa para indicar que la
 Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y muchos a muchos. Supongo que tiene una relación entre las entidades Curso y Profesor. Para configurar la relación usando JPA, las clases se verán así:
 
 ```
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "profesores")
 public class Profesores {
@@ -44,6 +48,8 @@ public class Profesores {
 ```
 
 ```
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "cursos")
 public class Cursos {
@@ -69,6 +75,8 @@ public class Cursos {
 Suponga que tiene las entidades Estudiantes y Cursos. Para configurar la relación Muchos a Muchos entre estas dos tablas, necesita hacer lo siguiente:
 
 ```
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "estudiantes")
 public class Estudiantes {
@@ -93,6 +101,8 @@ public class Estudiantes {
 Note que usted define la tabla pivote a través de @JoinTable
 
 ```
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "cursos")
 public class Cursos {
