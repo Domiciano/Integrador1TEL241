@@ -12,14 +12,14 @@ Use el Springboot Initializer para crear un nuevo proyecto desde IntellJ Ultimat
 
 A la lista de dependencias, agregue
 ```
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
 
 
-    </dependencies>
+   
 
 ```
 De esta forma nuestro repositorio tendrá lo necesario para comenzar un RestAPI HTTP
