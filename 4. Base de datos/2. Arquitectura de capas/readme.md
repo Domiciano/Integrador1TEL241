@@ -1,6 +1,41 @@
 Debe tener en cuenta las capas de:
 
-## 1. Controller
+
+## 1. Dependencias
+Dependencias necesarias para los datos
+```
+<dependency>
+   <groupId>mysql</groupId>
+   <artifactId>mysql-connector-java</artifactId>
+   <version>8.0.26</version>
+</dependency>
+
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+## 2. Propiedades
+Agregue a src/main/resources un archivo llamado application.properties
+
+```
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://200.3.193.22:3306/DATABASE
+spring.datasource.username=USER
+spring.datasource.password=PASS
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.tomcat.max-active=2
+```
+
+
+
+## 3. Controller
 Esta capa está encargada de recibir las solicitudes del frontend. Aquí programará los GET, POST, PUT o DELETE.<br>
 Tenga en cuenta:<br>
 <ol>
@@ -31,7 +66,7 @@ public class EchoController {
 }
 ```
 
-## 2. Repository
+## 4. Repository
 En un repository, va el CRUD (Create, Read, Update, Delete) de cada una de las entidades. Por ejemplo si tenemos una entidad User, un repository puede verse así
 
 ```
@@ -45,7 +80,7 @@ Donde <User, Integer> el el tipo de dato de la entidad y el tipo de dato de la l
 La clase repository es llamada por la clase controller donde se necesite usar.
 
 
-## 3. Entidad
+## 5. Entidad
 Finalmente tenemos la entidad. Esta representa una tabla dentro de la base de datos y se creará automáticamente en cuanto almacene documentos mediante save().
 
 Una entidad se ve así
@@ -100,7 +135,7 @@ public class User {
 ```
 Donde @GeneratedValue(strategy = GenerationType.AUTO) se usa para indicar que la variable será INT y AUTO_INCREMENT
 
-## 4. Relación 1 a Muchos
+## 6. Relación 1 a Muchos
 Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y muchos a muchos. Supongo que tiene una relación entre las entidades Curso y Profesor. Para configurar la relación usando JPA, las clases se verán así:
 
 ```
@@ -148,7 +183,7 @@ public class Cursos {
 
 
 
-## 4. Relación Muchos a Muchos
+## 7. Relación Muchos a Muchos
 Suponga que tiene las entidades Estudiantes y Cursos. Para configurar la relación Muchos a Muchos entre estas dos tablas, necesita hacer lo siguiente:
 
 ```
