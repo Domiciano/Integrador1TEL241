@@ -17,10 +17,6 @@ A la lista de dependencias, agregue
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-
-
-   
-
 ```
 De esta forma nuestro repositorio tendrá lo necesario para comenzar un RestAPI HTTP
 
