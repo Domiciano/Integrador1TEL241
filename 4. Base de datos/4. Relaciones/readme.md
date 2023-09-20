@@ -67,7 +67,7 @@ public class Profesores {
 
     @OneToMany(mappedBy = "profesor") //Nombre de la propiedad en la otra clase
     @JsonIgnore
-    private Set<Cursos> cursos;
+    private List<Cursos> cursos;
     
     //No olvidar los Getters y Setters   
 }
@@ -91,7 +91,7 @@ public class Cursos {
     Profesores profesor;
 
     @ManyToMany
-    Set<Estudiantes> estudiantes;
+    List<Estudiantes> estudiantes;
 
     //No olvidar los Getters y Setters
 }
