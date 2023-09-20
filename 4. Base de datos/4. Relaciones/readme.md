@@ -59,9 +59,6 @@ public class Cursos {
     @JoinColumn(name = "profeID")
     Profesores profesor;
 
-    @ManyToMany
-    List<Estudiantes> estudiantes;
-
     //No olvidar los Getters y Setters
 }
 ```
