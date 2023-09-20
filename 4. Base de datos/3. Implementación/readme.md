@@ -18,6 +18,14 @@ Dependencias necesarias para los datos
    <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 ```
+No olvide la dependencia Web si es que no la tiene en su lista
+```
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+
 
 ## Propiedades
 Agregue a src/main/resources un archivo llamado application.properties
