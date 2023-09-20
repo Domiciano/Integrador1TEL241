@@ -1,4 +1,4 @@
-## 3. Controller
+## Controller
 Esta capa está encargada de recibir las solicitudes del frontend. Aquí programará los GET, POST, PUT o DELETE.<br>
 Tenga en cuenta:<br>
 <ol>
