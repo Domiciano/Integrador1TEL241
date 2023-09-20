@@ -42,7 +42,7 @@ public class Profesores {
     @OneToMany(mappedBy = "profesor") //Nombre de la propiedad en la otra clase
     private List<Cursos> cursos;
     
-    //No olvidar los Getters y Setters   
+    //ToDo: Hacer Getters y Setters
 }
 
 ```
@@ -65,7 +65,7 @@ public class Cursos {
     @JoinColumn(name = "profeID")
     Profesores profesor;
 
-    //No olvidar los Getters y Setters
+    //ToDo: Hacer Getters y Setters
 }
 ```
 
@@ -94,7 +94,7 @@ public class Estudiantes {
     )
     private List<Cursos> cursos;
 
-    //No olvidar Getters y Setters
+    //ToDo: Hacer Getters y Setters
     
 }
 ```
@@ -121,7 +121,7 @@ public class Cursos {
     @ManyToMany
     List<Estudiantes> estudiantes;
 
-    //No olvidar Getters y Setters
+    //ToDo: Hacer Getters y Setters
     
 }
 
