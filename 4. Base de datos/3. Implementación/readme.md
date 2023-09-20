@@ -12,11 +12,6 @@ Dependencias necesarias para los datos
    <groupId>org.springframework.boot</groupId>
    <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
-
-<dependency>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
 ```
 No olvide la dependencia Web si es que no la tiene en su lista
 ```
