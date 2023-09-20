@@ -66,7 +66,6 @@ public class Profesores {
     private String name;
 
     @OneToMany(mappedBy = "profesor") //Nombre de la propiedad en la otra clase
-    @JsonIgnore
     private List<Cursos> cursos;
     
     //No olvidar los Getters y Setters   
