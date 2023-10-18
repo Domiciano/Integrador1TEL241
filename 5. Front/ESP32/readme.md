@@ -296,5 +296,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 ```
 
+## Serial
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+}
+void serialEvent() {
+  if (Serial.available() > 0) {
+    String data = Serial.readStringUntil('\n');
+  }
+}
 
 
