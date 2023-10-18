@@ -214,7 +214,18 @@ void initWiFi() {
 
 ## Codificando en JSON
 
-https://microdigisoft.com/esp32-with-arduino-json-using-arduino-ide/
+```
+#include <Arduino_JSON.h>
+
+...
+
+JSONVar myObject;
+myObject["key1"] = "value1";
+myObject["key2"] = "value2";
+String jsonString = JSON.stringify(myObject);
+Serial.println(jsonString);
+```
+
 
 
 ## Conexión a MQTT Server SIN SSL
