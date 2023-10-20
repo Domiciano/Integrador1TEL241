@@ -56,8 +56,8 @@ void serialEvent() {
 #include <HTTPClient.h>
 
 
-const char* ssid = "PUBLICA";
-const char* password = "";
+const char* ssid = "LABREDES";
+const char* password = "F0rmul4-1";
 
 
 String url = "https://pokeapi.co/api/v2/pokemon/ditto";
