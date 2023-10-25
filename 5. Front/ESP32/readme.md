@@ -262,9 +262,10 @@ const char* password = "";
 // Configuración del servidor MQTT
 const char* mqttServer = "broker.hivemq.com";
 const int mqttPort = 1883;
+const char* clientName = "ESP32ClienteIcesi001";
 
 // Configuración del topic
-const char* topic = "test/101/alfa";
+const char* topic = "test/101/beta";
 
 // Objeto WiFiClient
 WiFiClient wifiClient;
@@ -290,7 +291,7 @@ void setup() {
   // Intenta conectarse al servidor MQTT
   while (!mqttClient.connected()) {
     Serial.println("Intentando conectar al servidor MQTT...");
-    if (mqttClient.connect("Clienteasdasd")) {
+    if (mqttClient.connect(clientName)) {
       Serial.println("Conectado al servidor MQTT!");
     } else {
       Serial.print("Error al conectar: ");
@@ -317,6 +318,26 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void loop() {
   // Procesa los mensajes del servidor MQTT
   mqttClient.loop();
+  keepAlive();
+  
+}
+
+void keepAlive(){
+  if (!mqttClient.connected()) {
+    Serial.println("Reconectando");
+    // Intenta conectarse al servidor MQTT
+    while (!mqttClient.connected()) {
+      Serial.println("Intentando conectar al servidor MQTT...");
+      if (mqttClient.connect(clientName)) {
+        Serial.println("Conectado al servidor MQTT!");
+      } else {
+        Serial.print("Error al conectar: ");
+        Serial.println(mqttClient.state());
+        delay(5000);
+      }
+    }
+    mqttClient.subscribe(topic);
+  }
 }
 ```
 
