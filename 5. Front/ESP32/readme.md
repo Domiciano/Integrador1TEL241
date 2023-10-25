@@ -339,5 +339,12 @@ void keepAlive(){
     mqttClient.subscribe(topic);
   }
 }
+
+void serialEvent() {
+  if (Serial.available() > 0) {
+    String data = Serial.readStringUntil('\n');
+    mqttClient.publish("test/101/beta", data.c_str(), 1);
+  }
+}
 ```
 
