@@ -12,6 +12,7 @@ const json = await response.json();
 ```
 Donde data es un objeto</br></br>
 
+
 La forma más simple es cuando hacemos un GET
 
 ```
