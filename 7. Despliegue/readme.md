@@ -12,7 +12,7 @@ Se genera el .jar, luego se debe hacer el dockerfile
 
 ```
 # Utiliza una imagen base de Java
-FROM --platform=linux/amd64 openjdk:11-jdk
+FROM openjdk:11-jdk
 
 # Establece el directorio de trabajo en la imagen
 WORKDIR /app
