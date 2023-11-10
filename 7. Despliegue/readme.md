@@ -119,6 +119,16 @@ Para detener su stack
 docker-compose down
 ```
 
+```
+docker network ls
+```
+
+```
+docker network inspect <NETWORK ID>
+```
+
+
+
 ## 7. Desplegar a producción
 Para subir en un orquestador de contenedores como portainer se debe usar la configuración establecida por el administrador para poder hacer la publicación.
 
