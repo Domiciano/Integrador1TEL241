@@ -3,7 +3,7 @@
 ## 1. Preparación
 Este comando le permitirá generar el JAR para ejecutar la aplicación
 ```
-mvn clean package
+mvn clean package -DskipTests
 ``` 
 Se genera el .jar, luego se debe hacer el dockerfile
 
