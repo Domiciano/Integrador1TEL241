@@ -146,38 +146,37 @@ services:
       MYSQL_ROOT_PASSWORD: 'password'
     volumes:
       - bannerdata:/var/lib/mysql
-    networks: # Se usa una red llamada proxy configurado en el portainer para que tenga salida a internet
+    networks:
       - proxy
 
   bannerbackend:
     depends_on:
       - bannerdb
-    image: domi0620/back:0.0.12
+    image: domi0620/exampleapp:0.0.3
     restart: always
-    ports:
-      - '8081:8080'
-    expose:
-      - '8081'
+
     environment:
       - DATA_SOURCE_URL=jdbc:mysql://bannerdb:3306/db
-      - APP_PATH=/bannerapi
-    networks: # Se usa una red llamada proxy configurado en el portainer para que tenga salida a internet
+      - APP_PATH=/introtel
+    networks:
       - proxy
-    deploy: # Se la propiedad deploy para establecer el número de réplicas de la imagen y se configura el path
+    deploy:
         replicas: 1
         labels: 
           com.df.distribute: "false"
           com.df.notify: "true"
           com.df.port: 8080
-          com.df.servicePath: "/bannerapi"
+          com.df.servicePath: "/introtel"
+          
+
 
 volumes:
   bannerdata:
-    external: true # Se configura el volumen como externa
+    external: true
 
 networks:
   proxy:
-    external: true # Se configura la red como externa
+    external: true
 ```
 
 
