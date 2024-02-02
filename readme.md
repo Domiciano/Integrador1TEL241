@@ -25,17 +25,17 @@ Para eso prepare una serie de preguntas para caracterizar los procesos necesario
 
 Los entregables que debe presentar son:
 
-Introducción<br>
+<b>Introducción</b><br>
 Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, posibles antecedentes y por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
 <br>
 
-Problema de ingeniería<br>
+<b>Problema de ingeniería</b><br>
 Debe poder describir el problema. ¿Cuál es el problema que se está solucionando?. Para esto primera haga una análisis causa-raíz elaborando un arbol de problema. Debe identificar las causas, el problema y las consecuencias. (https://patgu.eco.catedras.unc.edu.ar/unidad-3/herramientas/arbol-de-problemas/)
 <br>
 
-Justificación<br>
+<b>Justificación</b><br>
 Luego de analizar el problema, justifique por qué el uso de la tecnología y las comunicaciones soluciona el problema que han planteado. 
 <br>
 
-Requerimientos<br>
+Requerimientos</b><br>
 Elicite los requerimientos siguiendo estrictamente el EARS Pattern (https://alistairmavin.com/ears/)
