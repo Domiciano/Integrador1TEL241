@@ -80,3 +80,49 @@ void initWiFi() {
 
 ```
 
+# Access point 
+
+```
+#include <WiFi.h>
+#include <WiFiAP.h>
+
+
+const char* ssid = "Telematica";
+const char* password = "alfabetagamma";
+
+IPAddress AP_LOCAL_IP(192, 168, 1, 1);
+IPAddress AP_GATEWAY_IP(192, 168, 1, 254);
+IPAddress AP_NETWORK_MASK(255, 255, 255, 192);
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  WiFi.softAPConfig(AP_LOCAL_IP, AP_GATEWAY_IP, AP_NETWORK_MASK);
+  WiFi.softAPsetHostname("Telematica");
+  if (!WiFi.softAP(ssid, password)){
+        Serial.println("Soft AP creation failed.");
+        while (1);
+  }
+  Serial.print("AP Name SSID: ");
+  Serial.println(WiFi.softAPSSID());
+  Serial.print("AP IP Address: ");
+  Serial.println(WiFi.softAPIP());
+  Serial.print("AP Hostname: ");
+  Serial.println(WiFi.softAPgetHostname());
+  Serial.print("AP Mac Address: ");
+  Serial.println(WiFi.softAPmacAddress());
+  Serial.print("AP Subnet: ");
+  Serial.println(WiFi.softAPSubnetCIDR());
+}
+
+void loop() {
+  Serial.print("Num of Connected Clients : ");
+  Serial.println(WiFi.softAPgetStationNum());
+  delay(5000);
+}
+```
+
+# Red de acceso en laboratorio
+const char* ssid = "LABREDES";
+const char* password = "F0rmul4-1";
