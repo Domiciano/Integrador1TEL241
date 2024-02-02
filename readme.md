@@ -25,5 +25,7 @@ Para eso prepare una serie de preguntas para caracterizar los procesos necesario
 1. Introducción<br>
 Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
 <br>
-2. <br>
+2. Problema de ingeniería<br>
+Debe poder describir el problema. ¿Cuál es el problema que se está solucionando?. Para esto primera haga una análisis causa-raíz elaborando un arbol de problema. Debe identificar las causas, el problema y las consecuencias. (https://patgu.eco.catedras.unc.edu.ar/unidad-3/herramientas/arbol-de-problemas/)
+<br>
 3. <br>
