@@ -16,3 +16,14 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 # Elementos de referencia
 
 <a href="https://miro.com/app/board/o9J_l23kC64=/?share_link_id=159122822699"><img width="128" src="https://store-images.s-microsoft.com/image/apps.59334.13959754522315136.c4ea2415-8e3c-42bf-8f77-e885eb7c11a1.be6eacf3-e0b4-4478-9abc-47192806c1b5?mode=scale&q=90&h=300&w=300"></a><br>
+
+
+# Primer Entregable
+Para el primer entregable usted y su equipo deben elicitar los requerimientos del proyecto.
+Para eso prepare una serie de preguntas para caracterizar los procesos necesarios y con la información que recoja escriba los requerimientos con el EARS Pattern (https://alistairmavin.com/ears/)
+<br><br>
+1. Introducción<br>
+Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
+<br>
+2. <br>
+3. <br>
