@@ -20,12 +20,22 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 
 # Primer Entregable
 Para el primer entregable usted y su equipo deben elicitar los requerimientos del proyecto.
-Para eso prepare una serie de preguntas para caracterizar los procesos necesarios y con la información que recoja escriba los requerimientos con el EARS Pattern (https://alistairmavin.com/ears/)
+Para eso prepare una serie de preguntas para caracterizar los procesos necesarios y con la información que recoja escriba las siguientes secciones de su trabajo
 <br><br>
-1. Introducción<br>
-Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
+
+Los entregables que debe presentar son:
+
+Introducción<br>
+Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, posibles antecedentes y por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
 <br>
-2. Problema de ingeniería<br>
+
+Problema de ingeniería<br>
 Debe poder describir el problema. ¿Cuál es el problema que se está solucionando?. Para esto primera haga una análisis causa-raíz elaborando un arbol de problema. Debe identificar las causas, el problema y las consecuencias. (https://patgu.eco.catedras.unc.edu.ar/unidad-3/herramientas/arbol-de-problemas/)
 <br>
-3. <br>
+
+Justificación<br>
+Luego de analizar el problema, justifique por qué el uso de la tecnología y las comunicaciones soluciona el problema que han planteado. 
+<br>
+
+Requerimientos<br>
+Elicite los requerimientos siguiendo estrictamente el EARS Pattern (https://alistairmavin.com/ears/)
