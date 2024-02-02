@@ -37,5 +37,5 @@ Debe poder describir el problema. ¿Cuál es el problema que se está solucionan
 Luego de analizar el problema, justifique por qué el uso de la tecnología y las comunicaciones soluciona el problema que han planteado. 
 <br>
 
-Requerimientos</b><br>
+<b>Requerimientos</b><br>
 Elicite los requerimientos siguiendo estrictamente el EARS Pattern (https://alistairmavin.com/ears/)
