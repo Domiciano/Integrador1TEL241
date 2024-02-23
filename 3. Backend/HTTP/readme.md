@@ -12,11 +12,10 @@ Use el Springboot Initializer para crear un nuevo proyecto desde IntellJ Ultimat
 
 A la lista de dependencias, agregue
 ```
-    
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
 ```
 De esta forma nuestro repositorio tendrá lo necesario para comenzar un RestAPI HTTP
 
@@ -72,3 +71,10 @@ Windows
 ```
 taskkill /PID <PID> /F
 ```
+
+### Archivo de configuración
+En el archivo de configuración se pueden cambiar parámetros estáticos del servidor. Como por ejemplo el puerto por el que escucha las solicitudes
+```
+server.port=8081
+```
+
