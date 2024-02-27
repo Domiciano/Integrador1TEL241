@@ -18,6 +18,15 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 <a href="https://miro.com/app/board/o9J_l23kC64=/?share_link_id=159122822699"><img width="128" src="https://store-images.s-microsoft.com/image/apps.59334.13959754522315136.c4ea2415-8e3c-42bf-8f77-e885eb7c11a1.be6eacf3-e0b4-4478-9abc-47192806c1b5?mode=scale&q=90&h=300&w=300"></a><br>
 
 
+# Segundo Entregable
+Para el segundo entregable deben presentar:<br><br>
+1. Propuesta gráfica: Los usuarios tendrán acceso a un sistema web entre otros nodos de su solución. Haga una propuesta de las pantallas que el usuario verá y tendrá acceso de acuerdo a sus requerimientos ya elicitados<br>
+2. Diseño de la solución: Realice un diagrama SysML BDD que especifique los bloques de su solución<br>
+3. Diagrama de bloques funcional. Realice un gráfico o diagrama donde comunique la forma como los componentes están conectados entre sí
+
+
+
+
 # Primer Entregable
 Para el primer entregable usted y su equipo deben elicitar los requerimientos del proyecto.
 Para eso prepare una serie de preguntas para caracterizar los procesos necesarios y con la información que recoja escriba las siguientes secciones de su trabajo
