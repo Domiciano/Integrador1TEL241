@@ -30,8 +30,8 @@ Finalmente las relaciones de tablas que necesitará usar son: 1 a muchos y mucho
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "profesores")
-public class Profesores {
+@Table(name = "profesor")
+public class Profesor {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -40,19 +40,19 @@ public class Profesores {
     private String name;
 
     @OneToMany(mappedBy = "profesor") //Nombre de la propiedad en la otra clase
-    private List<Cursos> cursos;
+    private List<Curso> cursos;
     
     //ToDo: Hacer Getters y Setters
 }
 
 ```
-
+Note que @OneToMany representa el 1 en el diagrama y @ManyToOne representa el *. Además @OneToMany en mappedBy se especifica el nombre del objeto de la clase relacionada, en @ManyToOne en su propiedad name se especifica el nombre del campo de la tabla donde se aloja la llave foránea
 ```
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cursos")
-public class Cursos {
+@Table(name = "curso")
+public class Curso {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
@@ -63,7 +63,7 @@ public class Cursos {
 
     @ManyToOne
     @JoinColumn(name = "profeID")
-    Profesores profesor;
+    Profesor profesor;
 
     //ToDo: Hacer Getters y Setters
 }
