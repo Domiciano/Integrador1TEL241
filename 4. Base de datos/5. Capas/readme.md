@@ -1,4 +1,4 @@
-## Controller
+## 1. Controller
 Esta capa está encargada de recibir las solicitudes del frontend. Aquí programará los GET, POST, PUT o DELETE.<br>
 Tenga en cuenta:<br>
 <ol>
@@ -29,11 +29,11 @@ public class EchoController {
 }
 ```
 
-## 4. Repository
+## 2. Repository
 En un repository, va el CRUD (Create, Read, Update, Delete) de cada una de las entidades. Por ejemplo si tenemos una entidad User, un repository puede verse así
 
 ```
-public interface UserRepositories extends CrudRepository<User, Integer> {
+public interface UserRepositories extends CrudRepository<User, Long> {
 
 }
 ``` 
