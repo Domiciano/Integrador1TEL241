@@ -38,6 +38,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 }
 ``` 
 
-Donde <User, Integer> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
+Donde <User, Long> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
 
 La clase repository es llamada por la clase controller donde se necesite usar.
