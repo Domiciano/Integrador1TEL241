@@ -33,7 +33,7 @@ public class EchoController {
 En un repository, va el CRUD (Create, Read, Update, Delete) de cada una de las entidades. Por ejemplo si tenemos una entidad User, un repository puede verse así
 
 ```
-public interface UserRepositories extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
 }
 ``` 
