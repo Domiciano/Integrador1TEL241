@@ -41,3 +41,34 @@ public interface UserRepository extends CrudRepository<User, Long> {
 Donde <User, Long> el el tipo de dato de la entidad y el tipo de dato de la llave primaria de esa entidad. La interfaz por defecto tendrá los métodos save(User user), deleteById(Integer id), deleteAll(), findAll(), findById(), entre otros. 
 
 La clase repository es llamada por la clase controller donde se necesite usar.
+
+
+## 3. Acciones
+Todas las acciones y consultas se hacen por medio del repositorio.<br><br>
+
+### Obtener todos los registros de la tabla 
+```
+repository.findAll()
+```
+### Insertar datos
+```
+repository.save(user)
+```
+Donde user es una instancia de la entidad User
+
+### Obtener registros con filtro de búsqueda
+En el repositorio debe escribir la consulta
+
+```
+@Query("SELECT u FROM User u WHERE u.name = :name")
+List<User> findUsersByVehicleBrand(@Param("name") String name);
+```
+
+Una consulta más avanzada se ve así
+```
+@Query("SELECT u FROM User u JOIN u.vehicleList v WHERE v.brand = :brand")
+List<User> findUsersByVehicleBrand(@Param("brand") String brand);
+```
+
+
+
