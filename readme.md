@@ -18,33 +18,127 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 <a href="https://miro.com/app/board/o9J_l23kC64=/?share_link_id=159122822699"><img width="128" src="https://store-images.s-microsoft.com/image/apps.59334.13959754522315136.c4ea2415-8e3c-42bf-8f77-e885eb7c11a1.be6eacf3-e0b4-4478-9abc-47192806c1b5?mode=scale&q=90&h=300&w=300"></a><br>
 
 
-# Segundo Entregable
-Para el segundo entregable deben presentar:<br><br>
-1. Propuesta gráfica: Los usuarios tendrán acceso a un sistema web entre otros nodos de su solución. Haga una propuesta de las pantallas que el usuario verá y tendrá acceso de acuerdo a sus requerimientos ya elicitados<br>
-2. Diseño de la solución: Realice un diagrama SysML BDD que especifique los bloques de su solución<br>
-3. Diagrama de bloques funcional. Realice un gráfico o diagrama donde comunique la forma como los componentes están conectados entre sí
+# Comando básicos de git
+
+## Comandos clave:
+</br>
+
+```
+git init
+```
+Para que una carpeta normal del sistema se vuelva un repositorio (tiene una carpeta oculta llamada .git)
+</br></br>
+```
+git status
+```
+Para mirar los cambios actualues 
+</br></br>
+```
+git add .
+```
+Para agregar todos los cambios al stage area
+</br></br>
+```
+git commit -m "Mensaje"
+```
+Para crear un commit con los cambios del stage area
+</br></br>
+```
+git log --oneline
+```
+Para ver el historial de commits
+</br></br>
+
+```
+git log --oneline --graph
+```
+Para ver el historial de commits, pero más gráficamente
+</br></br>
 
 
+### Remotos
+```
+git remote -v 
+```
+Permite listar los remotos de nuestro repositorio local
+</br></br>
 
 
-# Primer Entregable
-Para el primer entregable usted y su equipo deben elicitar los requerimientos del proyecto.
-Para eso prepare una serie de preguntas para caracterizar los procesos necesarios y con la información que recoja escriba las siguientes secciones de su trabajo
-<br><br>
+```
+git remote add <nombreRemoto> <URLremoto> 
+```
+Permite agregar un remoto con un nombre específico
+</br></br>
 
-Los entregables que debe presentar son:
 
-<b>Introducción</b><br>
-Una buena introducción debe poder contextualizar al lector sobre el trabajo. En qué entorno nace el proyecto, posibles antecedentes y por qué el proyecto es una necesidad y en qué ayudaría a satisfacer esta necesidad, cómo se toman actualmente los datos y cómo un proyecto desplegado en la red contribuye al problema. En la introducción incluya al menos 3 referencias. Puede usar imágenes o ilustraciones que permitan al lector conocer el proyecto. Debe hacer de cuenta que el lector no tiene la menor idea del proyecto.
-<br>
+```
+git remote rm <nombreRemoto> 
+```
+Permite quitar un remoto
+</br></br>
 
-<b>Problema de ingeniería</b><br>
-Debe poder describir el problema. ¿Cuál es el problema que se está solucionando?. Para esto primera haga una análisis causa-raíz elaborando un arbol de problema. Debe identificar las causas, el problema y las consecuencias. (https://patgu.eco.catedras.unc.edu.ar/unidad-3/herramientas/arbol-de-problemas/)
-<br>
 
-<b>Justificación</b><br>
-Luego de analizar el problema, justifique por qué el uso de la tecnología y las comunicaciones soluciona el problema que han planteado. 
-<br>
+### Operaciones con remotos
 
-<b>Requerimientos</b><br>
-Elicite los requerimientos siguiendo estrictamente el EARS Pattern (https://alistairmavin.com/ears/)
+```
+git push <nombreRemoto> <nombreBranch> 
+```
+Permite actualizar un remoto con el trabajo hecho en el repositorio local
+</br></br>
+
+```
+git pull <nombreRemoto> <nombreBranch> 
+```
+Permite actualizar una rama local usando una rama remota como fuente de actualización. Tener en cuenta que debemos estar parados en una rama local homónima a la que estamos invocando con el comando, porque si no, estamos mezclando las ramas
+</br></br>
+
+```
+git fetch -p 
+```
+Permite actualizar las ramas respecto al repositorio remoto
+</br></br>
+
+```
+git push --delete origin <nombreDeRama> 
+```
+Permite eliminar la rama nombreDeRama del remoto
+</br></br>
+
+
+### Branches
+
+```
+git branch <nombreBranch>
+```
+Permite crear una nueva rama
+</br></br>
+
+```
+git checkout -b <nombreBranch>
+```
+Permite crear una nueva rama y pararse en ella en un sólo comando
+</br></br>
+
+```
+git branch -a
+```
+Listar todas las ramas
+</br></br>
+
+```
+git merge <nombreRama>
+```
+Permite mezclar la rama nombreRama en la rama en la que estemos parados. Hay 3 posibilidades: fast-fordward, recursive strategy o conflictos. En los dos últimos casos tendremos un commit específico que representa la mezcla.
+</br></br>
+
+```
+git branch -d
+```
+Permite eliminar una rama local
+</br></br>
+
+```
+git branch -D
+```
+Permite eliminar una rama local a la fuerza
+</br></br>
