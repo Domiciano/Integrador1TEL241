@@ -10,7 +10,7 @@ https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-window
 
 2. Vaya a File > Preferences
 
-3. En la sección Additional Boards Manager URLs copie y pegue la siguiente dirección:
+3. En la pestaña de settings ubique la sección 'Additional Boards Manager URLs' copie y pegue la siguiente dirección:
 
 ```
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
