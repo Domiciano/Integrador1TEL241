@@ -32,6 +32,8 @@ Tools > Boards > esp32 > ESP32-WROOM-DA Module
 
 ## Verifique puertos
 Entre en esta página y verifique dónde se encuentra sus elementos<br>
+https://docs.espressif.com/projects/esp-idf/en/v4.2/esp32/api-reference/peripherals/adc.html#:~:text=The%20ESP32%20integrates%20two%2012,channels%20(analog%20enabled%20pins).
+https://lastminuteengineers.com/esp32-pinout-reference/
 <ol>
   <li>GPIO. General purpose</li>
   <li>ADC. Analog/Digital converter</li>
