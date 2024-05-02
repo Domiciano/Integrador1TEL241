@@ -46,13 +46,14 @@ void setup() {
 }
 
 void loop() {
-  delay(1000);
-  Serial.println("Hello World");
+  int measurement = random(4096);
+  Serial.println(measurement);
+  delay(500);
 }
-
 void serialEvent() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
+    Serial.println(data);
   }
 }
 ```
