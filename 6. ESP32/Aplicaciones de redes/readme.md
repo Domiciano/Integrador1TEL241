@@ -19,7 +19,7 @@ const char* password = "SU_CONTRASENA";
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   initWiFi();
 
