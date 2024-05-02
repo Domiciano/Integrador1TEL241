@@ -33,11 +33,14 @@ Tools > Boards > esp32 > ESP32-WROOM-DA Module
 ## Plantilla
 ```
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop() {
+  delay(1000);
+  Serial.println("Hello World");
 }
+
 void serialEvent() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
