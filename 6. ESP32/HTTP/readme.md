@@ -176,6 +176,10 @@ void initWiFi() {
 
 ## Codificando en JSON
 
+Debe instalar la librería Arduino_JSON<br>
+https://github.com/arduino-libraries/Arduino_JSON
+
+
 ```
 #include <Arduino_JSON.h>
 
