@@ -30,6 +30,13 @@ Después de eso, ya puede seleccionar su ESP32 en el menú de boards. <br><br>
 
 Tools > Boards > esp32 > ESP32-WROOM-DA Module
 
+## Verifique puertos
+Entre en esta página y verifique dónde se encuentra sus elementos<br>
+<ol>
+  <li>GPIO. General purpose</li>
+  <li>ADC. Analog/Digital converter</li>
+</ol>
+
 ## Plantilla
 ```
 void setup() {
