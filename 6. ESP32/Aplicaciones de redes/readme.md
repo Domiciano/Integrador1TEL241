@@ -1,4 +1,44 @@
+# Red de acceso en laboratorio
+const char* ssid = "LABREDES";
+const char* password = "F0rmul4-1";
+
 # Aplicaciones de redes
+
+
+## Conectarse a una red Wi-fi
+
+Use el siguiente código para conectarse a una red
+```
+#include <WiFi.h>
+
+const char* ssid = "SU_SSID";
+const char* password = "SU_CONTRASENA";
+
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.mode(WIFI_STA);
+  initWiFi();
+
+}
+
+void loop() {
+  
+}
+
+void initWiFi() {
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println("Connected!!");
+  Serial.println(WiFi.localIP());
+  
+}
+
+```
 
 ## Scanner de redes
 Programe esto en el ESP32 para reconocer las redes a su alrededor
@@ -45,40 +85,6 @@ void loop() {
 
 ```
 
-## Conectarse a una red Wi-fi
-
-Use el siguiente código para conectarse a una red
-```
-#include <WiFi.h>
-
-const char* ssid = "SU_SSID";
-const char* password = "SU_CONTRASENA";
-
-
-void setup() {
-  Serial.begin(9600);
-  WiFi.mode(WIFI_STA);
-  initWiFi();
-
-}
-
-void loop() {
-  
-}
-
-void initWiFi() {
-  WiFi.begin(ssid, password);
-  Serial.print("Connecting to WiFi ..");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print('.');
-    delay(1000);
-  }
-  Serial.println("Connected!!");
-  Serial.println(WiFi.localIP());
-  
-}
-
-```
 
 # Access point 
 
@@ -123,6 +129,4 @@ void loop() {
 }
 ```
 
-# Red de acceso en laboratorio
-const char* ssid = "LABREDES";
-const char* password = "F0rmul4-1";
+
