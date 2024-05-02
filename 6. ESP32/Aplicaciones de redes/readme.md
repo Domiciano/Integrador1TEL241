@@ -1,6 +1,9 @@
 # Red de acceso en laboratorio
+
+```
 const char* ssid = "LABREDES";
 const char* password = "F0rmul4-1";
+```
 
 # Aplicaciones de redes
 
