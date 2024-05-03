@@ -1,3 +1,4 @@
+```
 #include <WiFi.h>
 #include <HTTPClient.h>
 
@@ -65,7 +66,4 @@ void readSensors(){
     delay(20);
   }
 }
-
-
-
-
+```
