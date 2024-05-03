@@ -8,7 +8,7 @@ const char* ssid = "LABREDES";
 const char* password = "F0rmul4-1";
 
 
-String url = "https://pokeapi.co/api/v2/pokemon/ditto";
+String url = "https://facelogprueba.firebaseio.com/integrador.json";
 
 
 void setup() {
