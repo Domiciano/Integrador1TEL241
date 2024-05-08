@@ -107,14 +107,13 @@ public class Test {
     private String type;
     private int samples;
     private ArrayList<Reading> readings;
-    //GETS
-    //SETS
+    //GETS y SETS
 }
 ```
 ```java
 public class Reading {
     private int t;
     private int x;
-    //GETS
-    //SETS
+    //GETS y SETS
 ```
+}
