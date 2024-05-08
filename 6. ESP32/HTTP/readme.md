@@ -59,7 +59,7 @@ const char* ssid = "PUBLICA";
 const char* password = "";
 
 
-String url = "https://facelogprueba.firebaseio.com/pokemons.json";
+String url = "https://facelogprueba.firebaseio.com/db.json";
 
 
 void setup() {
