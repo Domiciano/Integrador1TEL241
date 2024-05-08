@@ -1,3 +1,7 @@
+# Toma de datos
+
+El siguiente programa está en desarrollo y permite por ahora conectarse a WiFi, hacer un GET Request y muestrear un conjunto de datos para producir un JSON
+
 ```c++
   #include <WiFi.h>
   #include <HTTPClient.h>
@@ -88,4 +92,29 @@
   }
 
 
+```
+
+Adicionalmente se desarrolló un endpoint capaz de recibir la información producida
+```java
+@PostMapping("sensor")
+public ResponseEntity<?> sendData(@RequestBody Test test){
+  var output = ResponseEntity.status(200).body(test);
+  return output;
+}
+```
+```java
+public class Test {
+    private String type;
+    private int samples;
+    private ArrayList<Reading> readings;
+    //GETS
+    //SETS
+}
+```
+```java
+public class Reading {
+    private int t;
+    private int x;
+    //GETS
+    //SETS
 ```
