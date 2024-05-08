@@ -179,15 +179,42 @@ void initWiFi() {
 Debe instalar la librería Arduino_JSON<br>
 https://github.com/arduino-libraries/Arduino_JSON
 
-
-```
+### Creando un objeto simple
+```c++
 #include <Arduino_JSON.h>
 
 ...
 
-JSONVar myObject;
-myObject["key1"] = "value1";
-myObject["key2"] = "value2";
-String jsonString = JSON.stringify(myObject);
+JSONVar object;
+object["key1"] = "value1";
+object["key2"] = "value2";
+object["key2"] = "value3";
+String jsonString = JSON.stringify(object);
 Serial.println(jsonString);
+```
+
+### Creando un arreglo
+
+```c++
+JSONVar jsonArray;
+jsonArray[0] = 20;
+jsonArray[1] = 214;
+jsonArray[2] = 317;
+jsonArray[3] = 498;
+...
+```
+
+### Componiendo objetos
+```c++
+
+JSONVar object;
+object["key1"] = "value1";
+
+JSONVar jsonArray;
+jsonArray[0] = 142;
+jsonArray[1] = 45;
+jsonArray[2] = 1020;
+
+object["key2"] = jsonArray;
+
 ```
