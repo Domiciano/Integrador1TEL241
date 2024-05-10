@@ -3,7 +3,7 @@
 El siguiente programa está en desarrollo y permite por ahora conectarse a WiFi, hacer un GET Request y muestrear un conjunto de datos para producir un JSON
 
 ```c++
-  #include <WiFi.h>
+    #include <WiFi.h>
   #include <HTTPClient.h>
   #include <Arduino_JSON.h>
 
@@ -69,7 +69,7 @@ El siguiente programa está en desarrollo y permite por ahora conectarse a WiFi,
 
   void readSensors(){
     for(int i=0 ; i<arrayLength ; i++){
-      int measurement = random(4096);
+      int measurement = random(4096); // analogRead(34);
       measurements[i] = measurement;
       delay(20); //50Hz
     }
@@ -87,11 +87,29 @@ El siguiente programa está en desarrollo y permite por ahora conectarse a WiFi,
     }
     testObj["readings"] = jsonArray;
     String json = JSON.stringify(testObj);
-    Serial.println(json);
-
+    POSTRequest(json);
   }
 
+  void POSTRequest(String json){
+      HTTPClient http;
+      String url = "http://192.168.130.38:8080/sensor";
+      http.begin(url);
+      http.addHeader("Content-Type", "application/json");
+      int httpResponseCode = http.POST(json);
 
+       //RECEPCIÓN
+      if (httpResponseCode > 0) {
+        Serial.print("HTTP Response code: ");
+        Serial.println(httpResponseCode);
+        String payload = http.getString();
+        Serial.println(payload);
+      } else {
+        Serial.print("Error code: ");
+        Serial.println(httpResponseCode);
+      }
+      http.end();
+
+  }
 ```
 
 Adicionalmente se desarrolló un endpoint capaz de recibir la información producida
