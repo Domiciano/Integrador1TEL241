@@ -20,3 +20,45 @@ Finalmente, necesitarás saber las frecuencias correspondientes a cada elemento 
 ```java
 double[] freqs = DFTUtils.dftFreq(signal, fs);
 ```
+
+# Graficar en Javascript
+
+## 1. HTML
+Primero necesitará un elemento canvas en su html
+```html
+...
+<div class="chartContainter">
+  <canvas id="signalChart">
+</div>
+...
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+```
+
+# 2. Modelo de datos
+Tenga en cuenta que en chartJS necesita una estructura de datos particular
+```javascript
+var data = [
+  { x: 0.1, y: 10 },
+  { x: 0.2, y: 20 },
+  { x: 0.3, y: 15 },
+  { x: 0.4, y: 25 },
+  { x: 15, y: 30 }
+];
+```
+# 3. Gráfico
+Luego, ya con todo listo, puede crear un chart y adicionarlo al canvas
+```javascript
+var ctx = document.getElementById('myChart').getContext('2d');
+
+// Configurar y crear el gráfico
+var myChart = new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      data: data,
+      showLine: true
+    }]
+  }
+});
+```
+
