@@ -52,7 +52,7 @@ var signalChart = document.getElementById('signalChart');
 var ctx = signalChart.getContext('2d');
 
 // Configurar y crear el gráfico
-var myChart = new Chart(ctx, {
+var chart = new Chart(ctx, {
   type: 'scatter',
   data: {
     datasets: [{
