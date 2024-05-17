@@ -1,59 +1,22 @@
-Este código de Java calcula la FFT de una señal
+# Transformada de Fourier
+¿Siempre has querido transformar tus señales del tiempo a la frencuencia? No se diga más, sigue estas sencillas instrucciones para hacer la transformada rápida de fourier de una vez por todas
+
+## 1. Normalizar
+Lo primero es que todas las señales tomadas por los sensores pueden tener amplitudes diferentes. Para normalizar el proceso debes normalizar la señal. Esta normalización elimina los componentes de DC y además hace que la amplitud sea 1
+
+```java
+double[] signal;
+...
+signal = DFTUtils.normalize(signal);
 ```
-public class Main {
+## 2. Ahora obtenga el vector de FFT
+Gracias al método de DFT, puede obtener la transformada, esto lo puede almacenar el un arreglo de double
+```java
+double[] spectrum = DFTUtils.dftSpectrum(signal);
+```
 
-    public static void main(String[] args) {
-        int sampling_rate = 1000;
-        double[] time = new double[sampling_rate*10];
-        double[] signal = new double[sampling_rate*10];
-        
-        for(int i=0; i<time.length; i++){
-            time[i] = i*1.0/sampling_rate;
-            signal[i] = Math.sin(2*Math.PI*100*time[i]) + 0.5*Math.sin(2*Math.PI*200*time[i]);
-        }
-        
-        double[] FFT = calculateFFT(signal);
-        double[] freqs = calculateFreqs(signal.length, 1.0/sampling_rate);
-        
-        for(int i=0; i<FFT.length; i++){
-            System.out.println(freqs[i] + " : " + FFT[i]);
-        }
-    }
-    
-    public static double[] calculateFFT(double[] signal){
-        double[] FFT = new double[signal.length];
-        
-        for(int i=0; i<signal.length; i++){
-            double real = 0.0;
-            double imag = 0.0;
-            
-            for(int j=0; j<signal.length; j++){
-                double angle = 2*Math.PI*i*j/signal.length;
-                real += signal[j]*Math.cos(angle);
-                imag -= signal[j]*Math.sin(angle);
-            }
-            
-            FFT[i] = Math.sqrt(real*real + imag*imag);
-        }
-        
-        return FFT;
-    }
-    
-    public static double[] calculateFreqs(int n, double T){
-        double[] freqs = new double[n];
-        double delta_f = 1.0/(n*T);
-        
-        for(int i=0; i<n; i++){
-            if(i < n/2){
-                freqs[i] = i*delta_f;
-            }
-            else{
-                freqs[i] = (i-n)*delta_f;
-            }
-        }
-        
-        return freqs;
-    }
-
-}
+## 3. Ahora obtenga el vector de frecuencias
+Finalmente, necesitarás saber las frecuencias correspondientes a cada elemento en el vector de FFT, lo puedes obtener así
+```java
+double[] freqs = DFTUtils.dftFreq(signal, fs);
 ```
