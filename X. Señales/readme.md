@@ -48,7 +48,8 @@ var data = [
 # 3. Gráfico
 Luego, ya con todo listo, puede crear un chart y adicionarlo al canvas
 ```javascript
-var ctx = document.getElementById('signalChart').getContext('2d');
+var signalChart = document.getElementById('signalChart');
+var ctx = signalChart.getContext('2d');
 
 // Configurar y crear el gráfico
 var myChart = new Chart(ctx, {
