@@ -11,7 +11,7 @@ Este es el repositorio del curso. Ejemplos de código, acceso a videos, etc. ser
 
 Realice un informe en el que adjunte como capítulos los elementos de diseño que ha presentado a lo largo del semestre: Introducción, Referencias, Problema, Justificación, Requerimientos, el diagrama de diseño de la base de datos, diseño de bloques SysML y el product backlog. Los anteriores puntos puede dejarlos inalterados. <b>EVITE INCLUIR EN ESTE ESCRITO LINKS, TODO DEBERÍA ESTAR CONTENIDO EN EL TRABAJO</b>
 
-Adicionalmente adjunte un capitulo llamado "Marco conceptual y técnico" donde liste todos los conceptos técnicos y tecnológicos que necesitaron para realizar el proyecto integrador. Cada item de esta lista debe tener una descripción. Categorice los elementos de esta lista de acuerdo a si es parte de front, back, base de datos, hardware o protocolos de comunicación.
+Adicionalmente adjunte un capitulo llamado "Marco conceptual y técnico" donde liste todos los conceptos técnicos y tecnológicos que necesitaron para realizar el proyecto integrador. Cada item de esta lista debe tener una descripción donde se argumente por qué es necesario para el proyecto. Categorice los elementos de esta lista de acuerdo a si es parte de front, back, base de datos, hardware o protocolos de comunicación.
 
 
 
