@@ -3,7 +3,7 @@
 El siguiente programa está en desarrollo y permite por ahora conectarse a WiFi, hacer un GET Request y muestrear un conjunto de datos para producir un JSON
 
 ```c++
-    #include <WiFi.h>
+  #include <WiFi.h>
   #include <HTTPClient.h>
   #include <Arduino_JSON.h>
 
