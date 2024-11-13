@@ -191,11 +191,11 @@ networks:
 Configuración del servidor nginx. Corresponde al archivo nginx.conf
 ```
 server {
-    listen 80;
-    location /banner {
+    listen 3000;
+    location /base {
         alias /usr/share/nginx/html;
         index index.html;
-        try_files $uri $uri/ /banner/index.html;
+        try_files $uri $uri/ /base/index.html;
     }
 }
 ```
